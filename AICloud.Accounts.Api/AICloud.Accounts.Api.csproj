@@ -134,6 +134,10 @@
     <Compile Include="Migrations\202009031710334_Vendors.designer.cs">
       <DependentUpon>202009031710334_Vendors.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009181831080_vendorchange.cs" />
+    <Compile Include="Migrations\202009181831080_vendorchange.designer.cs">
+      <DependentUpon>202009181831080_vendorchange.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\APInvoices.cs" />
     <Compile Include="Models\Vendor.cs" />
@@ -158,6 +162,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009031710334_Vendors.resx">
       <DependentUpon>202009031710334_Vendors.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009181831080_vendorchange.resx">
+      <DependentUpon>202009181831080_vendorchange.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
