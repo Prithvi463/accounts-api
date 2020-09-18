@@ -18,5 +18,13 @@ namespace AICloud.Accounts.Api.Context
 		}
 
 		public System.Data.Entity.DbSet<AICloud.Accounts.Api.Models.Vendor> Vendors { get; set; }
+
+		public System.Data.Entity.DbSet<AICloud.Accounts.Api.Models.APInvoice> APInvoices { get; set; }
+
+		public System.Data.Entity.DbSet<AICloud.Accounts.Api.Models.APCheck> APChecks { get; set; }
+
+		public System.Data.Entity.DbSet<AICloud.Accounts.Api.Models.ARCheck> ARChecks { get; set; }
+
+		public System.Data.Entity.DbSet<AICloud.Accounts.Api.Models.ARInvoice> ARInvoices { get; set; }
 	}
 }

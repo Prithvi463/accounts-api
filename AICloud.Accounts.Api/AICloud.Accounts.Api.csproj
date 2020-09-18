@@ -122,6 +122,10 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Context\AccountsDbContext.cs" />
+    <Compile Include="Controllers\APChecksController.cs" />
+    <Compile Include="Controllers\APInvoicesController.cs" />
+    <Compile Include="Controllers\ARChecksController.cs" />
+    <Compile Include="Controllers\ARInvoicesController.cs" />
     <Compile Include="Controllers\VendorsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -142,8 +146,15 @@
     <Compile Include="Migrations\202009181847201_vendorcontacts.designer.cs">
       <DependentUpon>202009181847201_vendorcontacts.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009182007407_ARInvoice.cs" />
+    <Compile Include="Migrations\202009182007407_ARInvoice.designer.cs">
+      <DependentUpon>202009182007407_ARInvoice.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\APInvoices.cs" />
+    <Compile Include="Models\APCheck.cs" />
+    <Compile Include="Models\APInvoice.cs" />
+    <Compile Include="Models\ARCheck.cs" />
+    <Compile Include="Models\ARInvoice.cs" />
     <Compile Include="Models\Vendor.cs" />
     <Compile Include="Models\VendorContacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -173,6 +184,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009181847201_vendorcontacts.resx">
       <DependentUpon>202009181847201_vendorcontacts.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009182007407_ARInvoice.resx">
+      <DependentUpon>202009182007407_ARInvoice.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
