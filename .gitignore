@@ -25,7 +25,7 @@ bld/
 [Oo]bj/
 [Ll]og/
 
-AICloud.Accounts.Api/bin
+/AICloud.Accounts.Api/bin
 
 # Visual Studio 2015/2017 cache/options directory
 .vs/
@@ -34,6 +34,9 @@ AICloud.Accounts.Api/bin
 
 # Visual Studio 2017 auto generated files
 Generated\ Files/
+
+
+/AICloud.Accounts.Api/obj\Debug
 
 # MSTest test Results
 [Tt]est[Rr]esult*/
