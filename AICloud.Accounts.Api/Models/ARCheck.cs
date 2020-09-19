@@ -18,6 +18,6 @@ namespace AICloud.Accounts.Api.Models
 		public decimal RemainingAmount { get; set; }
 		public string Comment { get; set; }
 		public string CashAccount { get; set; }
-		public bool InvoiceRelated { get; set; }
+		public string InvoiceRelated { get; set; }
 	}
 }

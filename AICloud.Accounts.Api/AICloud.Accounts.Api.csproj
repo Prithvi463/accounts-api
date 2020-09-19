@@ -150,6 +150,10 @@
     <Compile Include="Migrations\202009182007407_ARInvoice.designer.cs">
       <DependentUpon>202009182007407_ARInvoice.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009191813368_updatechecks.cs" />
+    <Compile Include="Migrations\202009191813368_updatechecks.designer.cs">
+      <DependentUpon>202009191813368_updatechecks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\APCheck.cs" />
     <Compile Include="Models\APInvoice.cs" />
@@ -187,6 +191,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009182007407_ARInvoice.resx">
       <DependentUpon>202009182007407_ARInvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009191813368_updatechecks.resx">
+      <DependentUpon>202009191813368_updatechecks.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
