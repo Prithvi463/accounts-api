@@ -13,8 +13,6 @@ namespace AICloud.Accounts.Api.Models
 		public string LastName { get; set; }
 		public string Email { get; set; }
 		public string Phone { get; set; }
-		public string Address1 { get; set; }
-		public string Address2 { get; set; }
 		[ForeignKey("Vendor")] public int Vendor_Id { get; set; }
 		public Vendor Vendor { get; set; }
 
