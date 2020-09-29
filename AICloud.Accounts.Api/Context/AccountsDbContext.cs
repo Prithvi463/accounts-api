@@ -26,5 +26,11 @@ namespace AICloud.Accounts.Api.Context
 		public System.Data.Entity.DbSet<AICloud.Accounts.Api.Models.ARCheck> ARChecks { get; set; }
 
 		public System.Data.Entity.DbSet<AICloud.Accounts.Api.Models.ARInvoice> ARInvoices { get; set; }
+
+		public System.Data.Entity.DbSet<AICloud.Accounts.Api.Models.BankDetails> BankDetails { get; set; }
+
+		public System.Data.Entity.DbSet<AICloud.Accounts.Api.Models.GeneralLedger> GeneralLedgers { get; set; }
+
+		public System.Data.Entity.DbSet<AICloud.Accounts.Api.Models.AccountType> AccountTypes { get; set; }
 	}
 }

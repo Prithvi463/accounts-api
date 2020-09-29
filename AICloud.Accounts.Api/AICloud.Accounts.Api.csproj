@@ -122,10 +122,13 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Context\AccountsDbContext.cs" />
+    <Compile Include="Controllers\AccountTypesController.cs" />
     <Compile Include="Controllers\APChecksController.cs" />
     <Compile Include="Controllers\APInvoicesController.cs" />
     <Compile Include="Controllers\ARChecksController.cs" />
     <Compile Include="Controllers\ARInvoicesController.cs" />
+    <Compile Include="Controllers\BankDetailsController.cs" />
+    <Compile Include="Controllers\GeneralLedgersController.cs" />
     <Compile Include="Controllers\VendorsController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
@@ -154,11 +157,18 @@
     <Compile Include="Migrations\202009191813368_updatechecks.designer.cs">
       <DependentUpon>202009191813368_updatechecks.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202009291828381_BankAndLedger.cs" />
+    <Compile Include="Migrations\202009291828381_BankAndLedger.designer.cs">
+      <DependentUpon>202009291828381_BankAndLedger.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountType.cs" />
     <Compile Include="Models\APCheck.cs" />
     <Compile Include="Models\APInvoice.cs" />
     <Compile Include="Models\ARCheck.cs" />
     <Compile Include="Models\ARInvoice.cs" />
+    <Compile Include="Models\BankDetails.cs" />
+    <Compile Include="Models\GeneralLedger.cs" />
     <Compile Include="Models\Vendor.cs" />
     <Compile Include="Models\VendorContacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -194,6 +204,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009191813368_updatechecks.resx">
       <DependentUpon>202009191813368_updatechecks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009291828381_BankAndLedger.resx">
+      <DependentUpon>202009291828381_BankAndLedger.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>
