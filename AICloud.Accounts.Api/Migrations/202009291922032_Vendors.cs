@@ -30,7 +30,7 @@
         
         public override void Down()
         {
-            DropTable("dbo.Vendors");
+           
         }
     }
 }
