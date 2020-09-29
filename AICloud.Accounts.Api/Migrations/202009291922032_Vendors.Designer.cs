@@ -7,18 +7,18 @@ namespace AICloud.Accounts.Api.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class vendorchange : IMigrationMetadata
+    public sealed partial class Vendors : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(vendorchange));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Vendors));
         
         string IMigrationMetadata.Id
         {
-            get { return "202009181831080_vendorchange"; }
+            get { return "202009291922032_Vendors"; }
         }
         
         string IMigrationMetadata.Source
         {
-            get { return null; }
+            get { return Resources.GetString("Source"); }
         }
         
         string IMigrationMetadata.Target

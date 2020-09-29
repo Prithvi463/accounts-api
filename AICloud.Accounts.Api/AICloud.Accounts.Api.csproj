@@ -137,18 +137,6 @@
     <Compile Include="Migrations\202009031708123_InitialCreate.designer.cs">
       <DependentUpon>202009031708123_InitialCreate.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202009031710334_Vendors.cs" />
-    <Compile Include="Migrations\202009031710334_Vendors.designer.cs">
-      <DependentUpon>202009031710334_Vendors.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009181831080_vendorchange.cs" />
-    <Compile Include="Migrations\202009181831080_vendorchange.designer.cs">
-      <DependentUpon>202009181831080_vendorchange.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202009181847201_vendorcontacts.cs" />
-    <Compile Include="Migrations\202009181847201_vendorcontacts.designer.cs">
-      <DependentUpon>202009181847201_vendorcontacts.cs</DependentUpon>
-    </Compile>
     <Compile Include="Migrations\202009182007407_ARInvoice.cs" />
     <Compile Include="Migrations\202009182007407_ARInvoice.designer.cs">
       <DependentUpon>202009182007407_ARInvoice.cs</DependentUpon>
@@ -160,6 +148,10 @@
     <Compile Include="Migrations\202009291828381_BankAndLedger.cs" />
     <Compile Include="Migrations\202009291828381_BankAndLedger.designer.cs">
       <DependentUpon>202009291828381_BankAndLedger.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202009291922032_Vendors.cs" />
+    <Compile Include="Migrations\202009291922032_Vendors.designer.cs">
+      <DependentUpon>202009291922032_Vendors.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountType.cs" />
@@ -190,15 +182,6 @@
     <EmbeddedResource Include="Migrations\202009031708123_InitialCreate.resx">
       <DependentUpon>202009031708123_InitialCreate.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009031710334_Vendors.resx">
-      <DependentUpon>202009031710334_Vendors.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009181831080_vendorchange.resx">
-      <DependentUpon>202009181831080_vendorchange.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202009181847201_vendorcontacts.resx">
-      <DependentUpon>202009181847201_vendorcontacts.cs</DependentUpon>
-    </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009182007407_ARInvoice.resx">
       <DependentUpon>202009182007407_ARInvoice.cs</DependentUpon>
     </EmbeddedResource>
@@ -207,6 +190,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009291828381_BankAndLedger.resx">
       <DependentUpon>202009291828381_BankAndLedger.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202009291922032_Vendors.resx">
+      <DependentUpon>202009291922032_Vendors.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

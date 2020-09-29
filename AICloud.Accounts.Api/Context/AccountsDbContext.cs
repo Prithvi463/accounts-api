@@ -17,8 +17,6 @@ namespace AICloud.Accounts.Api.Context
 			Database.SetInitializer(new MigrateDatabaseToLatestVersion<AccountsDbContext, AICloud.Accounts.Api.Migrations.Configuration>(true, config));
 		}
 
-		public System.Data.Entity.DbSet<AICloud.Accounts.Api.Models.Vendor> Vendors { get; set; }
-
 		public System.Data.Entity.DbSet<AICloud.Accounts.Api.Models.APInvoice> APInvoices { get; set; }
 
 		public System.Data.Entity.DbSet<AICloud.Accounts.Api.Models.APCheck> APChecks { get; set; }
@@ -32,5 +30,7 @@ namespace AICloud.Accounts.Api.Context
 		public System.Data.Entity.DbSet<AICloud.Accounts.Api.Models.GeneralLedger> GeneralLedgers { get; set; }
 
 		public System.Data.Entity.DbSet<AICloud.Accounts.Api.Models.AccountType> AccountTypes { get; set; }
+
+		public System.Data.Entity.DbSet<AICloud.Accounts.Api.Models.Vendor> Vendors { get; set; }
 	}
 }

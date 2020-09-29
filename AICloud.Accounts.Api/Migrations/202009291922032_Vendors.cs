@@ -12,17 +12,17 @@
                 c => new
                     {
                         Id = c.Int(nullable: false, identity: true),
-                        Name = c.String(),
+                        VendorId = c.String(),
+                        CompanyName = c.String(),
                         MobileNo = c.String(),
                         Email = c.String(),
                         WorkPhone = c.String(),
-                        HouseNo = c.String(),
-                        Street = c.String(),
+                        Address1 = c.String(),
+                        Address2 = c.String(),
                         City = c.String(),
                         State = c.String(),
-                        County = c.String(),
                         Country = c.String(),
-                        PinCode = c.String(),
+                        ZipCode = c.String(),
                     })
                 .PrimaryKey(t => t.Id);
             
