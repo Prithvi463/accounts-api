@@ -6,7 +6,7 @@ using System.Web;
 
 namespace AICloud.Accounts.Api.Models
 {
-	public class VendorContacts
+   public class VendorContacts
 	{
 		public int Id { get; set; }
 		public string FirstName { get; set; }

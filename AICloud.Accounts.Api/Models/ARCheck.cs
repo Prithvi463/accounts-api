@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AICloud.Accounts.Api.Models
 {
-	public class ARCheck
+   public class ARCheck
 	{
 		public int Id { get; set; }
 		public DateTime DepositDate { get; set; }

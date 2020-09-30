@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AICloud.Accounts.Api.Models
 {
-	public class APCheck
+    public class APCheck
 	{
 		public int Id { get; set; }
 		public string ChequeNumber { get; set; }

@@ -25,32 +25,32 @@ namespace AICloud.Accounts.Api.Controllers
 
         // GET: api/APChecks/5
         [ResponseType(typeof(APCheck))]
-        public IHttpActionResult GetAPChecks(int id)
+        public IHttpActionResult GetAPCheck(int id)
         {
-            APCheck aPChecks = db.APChecks.Find(id);
-            if (aPChecks == null)
+            APCheck aPCheck = db.APChecks.Find(id);
+            if (aPCheck == null)
             {
                 return NotFound();
             }
 
-            return Ok(aPChecks);
+            return Ok(aPCheck);
         }
 
         // PUT: api/APChecks/5
         [ResponseType(typeof(void))]
-        public IHttpActionResult PutAPChecks(int id, APCheck aPChecks)
+        public IHttpActionResult PutAPCheck(int id, APCheck aPCheck)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            if (id != aPChecks.Id)
+            if (id != aPCheck.Id)
             {
                 return BadRequest();
             }
 
-            db.Entry(aPChecks).State = EntityState.Modified;
+            db.Entry(aPCheck).State = EntityState.Modified;
 
             try
             {
@@ -58,7 +58,7 @@ namespace AICloud.Accounts.Api.Controllers
             }
             catch (DbUpdateConcurrencyException)
             {
-                if (!APChecksExists(id))
+                if (!APCheckExists(id))
                 {
                     return NotFound();
                 }
@@ -73,33 +73,33 @@ namespace AICloud.Accounts.Api.Controllers
 
         // POST: api/APChecks
         [ResponseType(typeof(APCheck))]
-        public IHttpActionResult PostAPChecks(APCheck aPChecks)
+        public IHttpActionResult PostAPCheck(APCheck aPCheck)
         {
             if (!ModelState.IsValid)
             {
                 return BadRequest(ModelState);
             }
 
-            db.APChecks.Add(aPChecks);
+            db.APChecks.Add(aPCheck);
             db.SaveChanges();
 
-            return CreatedAtRoute("DefaultApi", new { id = aPChecks.Id }, aPChecks);
+            return CreatedAtRoute("DefaultApi", new { id = aPCheck.Id }, aPCheck);
         }
 
         // DELETE: api/APChecks/5
         [ResponseType(typeof(APCheck))]
-        public IHttpActionResult DeleteAPChecks(int id)
+        public IHttpActionResult DeleteAPCheck(int id)
         {
-            APCheck aPChecks = db.APChecks.Find(id);
-            if (aPChecks == null)
+            APCheck aPCheck = db.APChecks.Find(id);
+            if (aPCheck == null)
             {
                 return NotFound();
             }
 
-            db.APChecks.Remove(aPChecks);
+            db.APChecks.Remove(aPCheck);
             db.SaveChanges();
 
-            return Ok(aPChecks);
+            return Ok(aPCheck);
         }
 
         protected override void Dispose(bool disposing)
@@ -111,7 +111,7 @@ namespace AICloud.Accounts.Api.Controllers
             base.Dispose(disposing);
         }
 
-        private bool APChecksExists(int id)
+        private bool APCheckExists(int id)
         {
             return db.APChecks.Count(e => e.Id == id) > 0;
         }

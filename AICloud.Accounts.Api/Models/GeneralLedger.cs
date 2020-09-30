@@ -6,7 +6,7 @@ using System.Web;
 
 namespace AICloud.Accounts.Api.Models
 {
-	public class GeneralLedger
+   public class GeneralLedger
 	{
 		public int Id { get; set; }
 

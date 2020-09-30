@@ -5,7 +5,7 @@ using System.Web;
 
 namespace AICloud.Accounts.Api.Models
 {
-	public class BankDetails
+   public class BankDetails
 	{
 		public int Id { get; set; }
 		public string Code { get; set; }
