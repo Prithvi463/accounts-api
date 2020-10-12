@@ -14,5 +14,6 @@ namespace AICloud.Accounts.Api.Models
 		public decimal RemainingAmount { get; set; }
 		public decimal ExchangeRate { get; set; }
 		public string Description { get; set; }
+		public string Bank_Id { get; set; }
 	}
 }

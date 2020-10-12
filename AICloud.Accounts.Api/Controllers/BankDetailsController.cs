@@ -7,9 +7,12 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 using System.Web.Http.Description;
 using AICloud.Accounts.Api.Context;
+using AICloud.Accounts.Api.Enums.GeneralLedger;
 using AICloud.Accounts.Api.Models;
+using AICloud.Accounts.Api.Services.GeneralLedger;
 
 namespace AICloud.Accounts.Api.Controllers
 {
@@ -82,8 +85,10 @@ namespace AICloud.Accounts.Api.Controllers
 
             db.BankDetails.Add(bankDetails);
             db.SaveChanges();
-
-            return CreatedAtRoute("DefaultApi", new { id = bankDetails.Id }, bankDetails);
+            var response = CreatedAtRoute("DefaultApi", new { id = bankDetails.Id }, bankDetails);
+            //var glsvc = new GeneralLedgerService();
+            //glsvc.CreateLedgerEntry(bankDetails.Id.ToString(),(int)LedgerTypes.OpeningBalance,bankDetails.Code,"",bankDetails.OpeningBalance);
+            return response;
         }
 
         // DELETE: api/BankDetails/5

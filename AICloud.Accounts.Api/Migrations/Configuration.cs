@@ -1,5 +1,6 @@
 ﻿namespace AICloud.Accounts.Api.Migrations
 {
+    using Microsoft.Azure.Mobile.Server.Tables;
     using System;
     using System.Data.Entity;
     using System.Data.Entity.Migrations;
@@ -10,7 +11,7 @@
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "AICloud.Accounts.Api.Context.AccountsDbContext";
+           SetSqlGenerator("System.Data.SqlClient", new EntityTableSqlGenerator());
         }
 
         protected override void Seed(AICloud.Accounts.Api.Context.AccountsDbContext context)

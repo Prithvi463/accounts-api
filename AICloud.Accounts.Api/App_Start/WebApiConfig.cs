@@ -11,7 +11,8 @@ namespace AICloud.Accounts.Api
         public static void Register(HttpConfiguration config)
         {
             // Web API configuration and services
-
+            
+            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
             // Web API routes
             config.MapHttpAttributeRoutes();
 
@@ -20,10 +21,9 @@ namespace AICloud.Accounts.Api
                 routeTemplate: "api/{controller}/{id}",
                 defaults: new { id = RouteParameter.Optional }
             );
-            config.EnableCors(new EnableCorsAttribute("*", "*", "*"));
 			config.Formatters.XmlFormatter.SupportedMediaTypes.Clear();
 			config.Formatters.JsonFormatter.SupportedMediaTypes.Add(
-				new System.Net.Http.Headers.MediaTypeHeaderValue("application/json-patch+json"));
+			new System.Net.Http.Headers.MediaTypeHeaderValue("application/json-patch+json"));
 
         }
     }

@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Microsoft.Azure.Mobile.Server;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 
 namespace AICloud.Accounts.Api.Models
 {
-  public class AccountType
+  public class AccountType :EntityData
 	{
 		public int Id { get; set; }
 		public string Code { get; set; }

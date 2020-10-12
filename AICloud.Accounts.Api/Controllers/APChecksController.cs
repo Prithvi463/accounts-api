@@ -9,7 +9,9 @@ using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
 using AICloud.Accounts.Api.Context;
+using AICloud.Accounts.Api.Enums.GeneralLedger;
 using AICloud.Accounts.Api.Models;
+using AICloud.Accounts.Api.Services.GeneralLedger;
 
 namespace AICloud.Accounts.Api.Controllers
 {
@@ -82,6 +84,9 @@ namespace AICloud.Accounts.Api.Controllers
 
             db.APChecks.Add(aPCheck);
             db.SaveChanges();
+
+            var glServ = new GeneralLedgerService();
+            glServ.CreateLedgerEntry(aPCheck.Bank_Id,(int)LedgerTypes.Laibilities,"L","333",Convert.ToDouble(aPCheck.ChequeAmount));
 
             return CreatedAtRoute("DefaultApi", new { id = aPCheck.Id }, aPCheck);
         }

@@ -46,16 +46,46 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="AutoMapper, Version=5.2.0.0, Culture=neutral, PublicKeyToken=be96cd2c38ef1005, processorArchitecture=MSIL">
+      <HintPath>..\packages\AutoMapper.5.2.0\lib\net45\AutoMapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.2.0.35\lib\net461\Dapper.dll</HintPath>
+    </Reference>
+    <Reference Include="Dapper.Contrib, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Dapper.Contrib.2.0.35\lib\net461\Dapper.Contrib.dll</HintPath>
+    </Reference>
     <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.dll</HintPath>
     </Reference>
     <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
       <HintPath>..\packages\EntityFramework.6.4.4\lib\net45\EntityFramework.SqlServer.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Server, Version=2.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Server.2.0.3\lib\net46\Microsoft.Azure.Mobile.Server.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Server.Entity, Version=2.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Server.Entity.2.0.3\lib\net46\Microsoft.Azure.Mobile.Server.Entity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Azure.Mobile.Server.Tables, Version=2.0.3.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Azure.Mobile.Server.Tables.2.0.3\lib\net46\Microsoft.Azure.Mobile.Server.Tables.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
+    <Reference Include="Microsoft.Data.Edm, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.Edm.5.8.4\lib\net40\Microsoft.Data.Edm.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Data.OData, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Data.OData.5.8.4\lib\net40\Microsoft.Data.OData.dll</HintPath>
+    </Reference>
+    <Reference Include="RestSharp, Version=106.11.7.0, Culture=neutral, PublicKeyToken=598062e77f915f75, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.106.11.7\lib\net452\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
+    <Reference Include="System.Spatial, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Spatial.5.8.4\lib\net40\System.Spatial.dll</HintPath>
+    </Reference>
     <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
     </Reference>
@@ -66,6 +96,9 @@
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="System.Web.Http.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.WebApi.Cors.5.2.7\lib\net45\System.Web.Http.Cors.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Web.Http.OData, Version=5.7.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.AspNet.WebApi.OData.5.7.0\lib\net45\System.Web.Http.OData.dll</HintPath>
     </Reference>
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Web" />
@@ -175,11 +208,19 @@
     <Compile Include="Controllers\ARChecksController.cs" />
     <Compile Include="Controllers\ARInvoicesController.cs" />
     <Compile Include="Controllers\BankDetailsController.cs" />
+    <Compile Include="Controllers\APInvoicesApiController.cs" />
     <Compile Include="Controllers\GeneralLedgersController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ValuesController.cs" />
     <Compile Include="Controllers\VendorContactsController.cs" />
     <Compile Include="Controllers\VendorsController.cs" />
+    <Compile Include="CustomModels\AccountDetails\AccountDetailsModel.cs" />
+    <Compile Include="CustomModels\APInvoices\ApInvoiceModel.cs" />
+    <Compile Include="CustomModels\APInvoices\PostApInvoiceModel.cs" />
+    <Compile Include="CustomModels\GeneralLedger\GeneralLedgerModel.cs" />
+    <Compile Include="CustomModels\GeneralLedger\GetLedgerWithBanksModel.cs" />
+    <Compile Include="CustomModels\GeneralLedger\PostLedgerModel.cs" />
+    <Compile Include="Enums\GeneralLedger\LedgerTypes.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -195,7 +236,56 @@
     <Compile Include="Migrations\202009301805339_added_ledger_tables.designer.cs">
       <DependentUpon>202009301805339_added_ledger_tables.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010041349070_added_column_in_bank.cs" />
+    <Compile Include="Migrations\202010041349070_added_column_in_bank.designer.cs">
+      <DependentUpon>202010041349070_added_column_in_bank.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010041703199_added_bank_in_Checks.cs" />
+    <Compile Include="Migrations\202010041703199_added_bank_in_Checks.designer.cs">
+      <DependentUpon>202010041703199_added_bank_in_Checks.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010061929228_rrearranging_tables.cs" />
+    <Compile Include="Migrations\202010061929228_rrearranging_tables.designer.cs">
+      <DependentUpon>202010061929228_rrearranging_tables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010071759415_added_account_details.cs" />
+    <Compile Include="Migrations\202010071759415_added_account_details.designer.cs">
+      <DependentUpon>202010071759415_added_account_details.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010100221145_added_vendorId_in_apinvoices.cs" />
+    <Compile Include="Migrations\202010100221145_added_vendorId_in_apinvoices.designer.cs">
+      <DependentUpon>202010100221145_added_vendorId_in_apinvoices.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010111836285_db_changes.cs" />
+    <Compile Include="Migrations\202010111836285_db_changes.designer.cs">
+      <DependentUpon>202010111836285_db_changes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010121713284_added_identity_to_apinvoice_accountdetails.cs" />
+    <Compile Include="Migrations\202010121713284_added_identity_to_apinvoice_accountdetails.designer.cs">
+      <DependentUpon>202010121713284_added_identity_to_apinvoice_accountdetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010121720264_added_glid_in_accountDetails.cs" />
+    <Compile Include="Migrations\202010121720264_added_glid_in_accountDetails.designer.cs">
+      <DependentUpon>202010121720264_added_glid_in_accountDetails.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010121725174_changed_Id_datatypes.cs" />
+    <Compile Include="Migrations\202010121725174_changed_Id_datatypes.designer.cs">
+      <DependentUpon>202010121725174_changed_Id_datatypes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010121751200_auto_incrementforapinvoice.cs" />
+    <Compile Include="Migrations\202010121751200_auto_incrementforapinvoice.designer.cs">
+      <DependentUpon>202010121751200_auto_incrementforapinvoice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010121755316_auto_date_Entry.cs" />
+    <Compile Include="Migrations\202010121755316_auto_date_Entry.designer.cs">
+      <DependentUpon>202010121755316_auto_date_Entry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202010121823229_added_id_as_guid_in_accountdetails.cs" />
+    <Compile Include="Migrations\202010121823229_added_id_as_guid_in_accountdetails.designer.cs">
+      <DependentUpon>202010121823229_added_id_as_guid_in_accountdetails.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\AccountDetails.cs" />
     <Compile Include="Models\AccountType.cs" />
     <Compile Include="Models\APCheck.cs" />
     <Compile Include="Models\APInvoice.cs" />
@@ -206,6 +296,14 @@
     <Compile Include="Models\Vendor.cs" />
     <Compile Include="Models\VendorContacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Services\AccountDetails\AccountDetailsDataService.cs" />
+    <Compile Include="Services\AccountDetails\AccountDetailsService.cs" />
+    <Compile Include="Services\APInvoices\ApInvoiceService.cs" />
+    <Compile Include="Services\APInvoices\ApInvoicesDataService.cs" />
+    <Compile Include="Services\Bank\BankDetailsService.cs" />
+    <Compile Include="Services\GeneralLedger\GeneralLedgerDataService.cs" />
+    <Compile Include="Services\GeneralLedger\GeneralLedgerService.cs" />
+    <Compile Include="Services\GeneralLedger\GeneralLedgerTableService.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="Areas\HelpPage\HelpPage.css" />
@@ -260,6 +358,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Controllers\Sevices\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
@@ -299,6 +398,42 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202009301805339_added_ledger_tables.resx">
       <DependentUpon>202009301805339_added_ledger_tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010041349070_added_column_in_bank.resx">
+      <DependentUpon>202010041349070_added_column_in_bank.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010041703199_added_bank_in_Checks.resx">
+      <DependentUpon>202010041703199_added_bank_in_Checks.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010061929228_rrearranging_tables.resx">
+      <DependentUpon>202010061929228_rrearranging_tables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010071759415_added_account_details.resx">
+      <DependentUpon>202010071759415_added_account_details.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010100221145_added_vendorId_in_apinvoices.resx">
+      <DependentUpon>202010100221145_added_vendorId_in_apinvoices.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010111836285_db_changes.resx">
+      <DependentUpon>202010111836285_db_changes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010121713284_added_identity_to_apinvoice_accountdetails.resx">
+      <DependentUpon>202010121713284_added_identity_to_apinvoice_accountdetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010121720264_added_glid_in_accountDetails.resx">
+      <DependentUpon>202010121720264_added_glid_in_accountDetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010121725174_changed_Id_datatypes.resx">
+      <DependentUpon>202010121725174_changed_Id_datatypes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010121751200_auto_incrementforapinvoice.resx">
+      <DependentUpon>202010121751200_auto_incrementforapinvoice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010121755316_auto_date_Entry.resx">
+      <DependentUpon>202010121755316_auto_date_Entry.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010121823229_added_id_as_guid_in_accountdetails.resx">
+      <DependentUpon>202010121823229_added_id_as_guid_in_accountdetails.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

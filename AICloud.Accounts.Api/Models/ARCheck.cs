@@ -19,5 +19,6 @@ namespace AICloud.Accounts.Api.Models
 		public string Comment { get; set; }
 		public string CashAccount { get; set; }
 		public string InvoiceRelated { get; set; }
+		public string Bank_Id { get; set; }
 	}
 }
