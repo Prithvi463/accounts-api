@@ -59,5 +59,11 @@ namespace AICloud.Accounts.Api.Services.APInvoices
              accountDetailsSvc1.ProcessAccounting(1,Convert.ToDouble(invoice.InvoiceAmount),invoice.Id,"ApInvoice",gl.Id);
         
         }
+
+           public List<ApInvoicesList> GetApInvoices()
+        {
+            var apInvoicesDataSvc = new ApInvoicesDataService();
+            return apInvoicesDataSvc.GetApInvoices();
+        }
     }
 }

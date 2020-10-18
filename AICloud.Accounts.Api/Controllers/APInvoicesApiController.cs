@@ -25,21 +25,19 @@ namespace AICloud.Accounts.Api.Controllers
             return Ok(generalLedgerService.GetLedgerWithBanks());
         }
 
-        //[HttpPost]
-        //public IHttpActionResult CreateLedgerEntry(PostLedgerModel data)
-        //{
-        //    var generalLedgerService = new GeneralLedgerService();
-        //    generalLedgerService.CreateLedgerEntry(data.Bank_Id, data.AccountType, "", data.SequenceNumber, Convert.ToDouble(data.Amount));
-        //    return Ok();
-        //}
-
-        //using
          [HttpPost]
         public IHttpActionResult PostInvoice(PostApInvoiceModel data)
         {
             var invSvc = new ApInvoiceService();
             invSvc.processApInvoicing(data);
             return Ok();
+        }
+         [HttpGet]
+         [Route("api/APInvoicesApi/GetApInvoice")]
+        public IHttpActionResult GetApInvoice()
+        {
+            var invSvc = new ApInvoiceService();
+               return Ok(invSvc.GetApInvoices());
         }
     }
 }

@@ -202,7 +202,9 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
     <Compile Include="Context\AccountsDbContext.cs" />
+    <Compile Include="Controllers\AccountDetailsController.cs" />
     <Compile Include="Controllers\AccountTypesController.cs" />
+    <Compile Include="Controllers\APChecksApiController.cs" />
     <Compile Include="Controllers\APChecksController.cs" />
     <Compile Include="Controllers\APInvoicesController.cs" />
     <Compile Include="Controllers\ARChecksController.cs" />
@@ -215,6 +217,8 @@
     <Compile Include="Controllers\VendorContactsController.cs" />
     <Compile Include="Controllers\VendorsController.cs" />
     <Compile Include="CustomModels\AccountDetails\AccountDetailsModel.cs" />
+    <Compile Include="CustomModels\APChecks\ApChecksModel.cs" />
+    <Compile Include="CustomModels\APChecks\ApChecksPostModel.cs" />
     <Compile Include="CustomModels\APInvoices\ApInvoiceModel.cs" />
     <Compile Include="CustomModels\APInvoices\PostApInvoiceModel.cs" />
     <Compile Include="CustomModels\GeneralLedger\GeneralLedgerModel.cs" />
@@ -284,6 +288,10 @@
     <Compile Include="Migrations\202010121823229_added_id_as_guid_in_accountdetails.designer.cs">
       <DependentUpon>202010121823229_added_id_as_guid_in_accountdetails.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202010122157184_changes_in_apchecks.cs" />
+    <Compile Include="Migrations\202010122157184_changes_in_apchecks.designer.cs">
+      <DependentUpon>202010122157184_changes_in_apchecks.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountDetails.cs" />
     <Compile Include="Models\AccountType.cs" />
@@ -298,8 +306,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Services\AccountDetails\AccountDetailsDataService.cs" />
     <Compile Include="Services\AccountDetails\AccountDetailsService.cs" />
+    <Compile Include="Services\APChecks\ApChecksService.cs" />
     <Compile Include="Services\APInvoices\ApInvoiceService.cs" />
     <Compile Include="Services\APInvoices\ApInvoicesDataService.cs" />
+    <Compile Include="CustomModels\APInvoices\ApInvoicesList.cs" />
     <Compile Include="Services\Bank\BankDetailsService.cs" />
     <Compile Include="Services\GeneralLedger\GeneralLedgerDataService.cs" />
     <Compile Include="Services\GeneralLedger\GeneralLedgerService.cs" />
@@ -434,6 +444,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202010121823229_added_id_as_guid_in_accountdetails.resx">
       <DependentUpon>202010121823229_added_id_as_guid_in_accountdetails.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202010122157184_changes_in_apchecks.resx">
+      <DependentUpon>202010122157184_changes_in_apchecks.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

@@ -1,15 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Web;
 
-namespace AICloud.Accounts.Api.Models
+namespace AICloud.Accounts.Api.CustomModels.APChecks
 {
-	public class APCheck
-	{
-		[Key]
-		public int Id { get; set; }
+    public class ApChecksModel
+    {
+        public int Id { get; set; }
 		public string ChequeNumber { get; set; }
 		public DateTime ChequeDate { get; set; }
 		public double ChequeAmount { get; set; }
@@ -18,5 +16,5 @@ namespace AICloud.Accounts.Api.Models
 		public string Description { get; set; }
 		public int Vendor_Id { get; set; }
 		public int BankGeneralLedger_Id { get; set; }
-	}
+    }
 }

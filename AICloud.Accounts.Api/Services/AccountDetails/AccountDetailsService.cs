@@ -57,9 +57,9 @@ namespace AICloud.Accounts.Api.Services.AccountDetails
                  accountEntry.Credit = 0;
             }
             accountEntry.CreatedAt = DateTime.Now;
-            //var accountDetailsDataSvc = new AccountDetailsDataService();
-            // accountDetailsDataSvc.SaveAccountDetails(accountEntry);
-            CreateAccountEntry(accountEntry);
+            var accountDetailsDataSvc = new AccountDetailsDataService();
+            accountDetailsDataSvc.SaveAccountDetails(accountEntry);
+            //CreateAccountEntry(accountEntry);
         }
     }
 }

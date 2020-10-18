@@ -84,10 +84,6 @@ namespace AICloud.Accounts.Api.Controllers
 
             db.APChecks.Add(aPCheck);
             db.SaveChanges();
-
-            var glServ = new GeneralLedgerService();
-            glServ.CreateLedgerEntry(aPCheck.Bank_Id,(int)LedgerTypes.Laibilities,"L","333",Convert.ToDouble(aPCheck.ChequeAmount));
-
             return CreatedAtRoute("DefaultApi", new { id = aPCheck.Id }, aPCheck);
         }
 
