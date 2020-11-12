@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -16,7 +17,7 @@ namespace AICloud.Accounts.Api.Services.APInvoices
         private string  _apiLink;
         public ApInvoiceService()
         {
-             _apiLink = "https://localhost:44301/";
+             _apiLink = ConfigurationManager.AppSettings.Get("AccountApiUrl");
         }
           public ApInvoiceModel CreateApInvoice(ApInvoiceModel apInvoice)
         {

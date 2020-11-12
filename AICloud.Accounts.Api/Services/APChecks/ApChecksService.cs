@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -18,7 +19,7 @@ namespace AICloud.Accounts.Api.Services.APChecks
         public ApChecksService()
         {
             
-             _apiLink = "https://localhost:44301/";
+             _apiLink = ConfigurationManager.AppSettings.Get("AccountApiUrl");
         }
 
          public ApChecksModel CreateApCheck(ApChecksModel apInvoice)

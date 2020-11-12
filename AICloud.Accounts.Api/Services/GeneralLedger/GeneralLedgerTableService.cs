@@ -16,7 +16,7 @@ namespace AICloud.Accounts.Api.Services.GeneralLedger
         private string  _apiLink;
         public GeneralLedgerTableService()
         {
-              _apiLink = "https://localhost:44301/";
+              _apiLink = ConfigurationManager.AppSettings.Get("AccountApiUrl");
         }
         public void CreateGLEntry(GeneralLedgerModel _glRecord)
         {

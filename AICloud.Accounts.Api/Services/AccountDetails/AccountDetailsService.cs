@@ -4,6 +4,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Web;
@@ -15,7 +16,7 @@ namespace AICloud.Accounts.Api.Services.AccountDetails
         private string  _apiLink;
         public AccountDetailsService()
         {
-             _apiLink = "https://localhost:44301/";
+             _apiLink = ConfigurationManager.AppSettings.Get("AccountApiUrl");
         }
         public AccountDetailsModel CreateAccountEntry(AccountDetailsModel apInvoice)
         {

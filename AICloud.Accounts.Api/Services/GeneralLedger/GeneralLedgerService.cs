@@ -16,7 +16,7 @@ namespace AICloud.Accounts.Api.Services.GeneralLedger
         private readonly string _apiLink;
         public GeneralLedgerService()
         {
-          _apiLink = "https://localhost:44301/";
+          _apiLink = ConfigurationManager.AppSettings.Get("AccountApiUrl");
         }
 
         public void CreateLedgerEntry(string bank_Id,int accountType,string accountCode,string sequenceNo,double amount)
