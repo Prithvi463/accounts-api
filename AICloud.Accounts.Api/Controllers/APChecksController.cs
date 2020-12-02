@@ -8,6 +8,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using System.Web.Http.Description;
+using AICloud.Accounts.Api.Attributes;
 using AICloud.Accounts.Api.Context;
 using AICloud.Accounts.Api.Enums.GeneralLedger;
 using AICloud.Accounts.Api.Models;
@@ -15,6 +16,7 @@ using AICloud.Accounts.Api.Services.GeneralLedger;
 
 namespace AICloud.Accounts.Api.Controllers
 {
+    [AuthorizeUser]
     public class APChecksController : ApiController
     {
         private AccountsDbContext db = new AccountsDbContext();

@@ -86,6 +86,8 @@
     <Reference Include="System.Spatial, Version=5.8.4.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\System.Spatial.5.8.4\lib\net40\System.Spatial.dll</HintPath>
     </Reference>
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Numerics" />
     <Reference Include="System.Web.Cors, Version=5.2.7.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.AspNet.Cors.5.2.7\lib\net45\System.Web.Cors.dll</HintPath>
     </Reference>
@@ -201,6 +203,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Attributes\AuthoriseUser.cs" />
     <Compile Include="Context\AccountsDbContext.cs" />
     <Compile Include="Controllers\AccountDetailsController.cs" />
     <Compile Include="Controllers\AccountTypesController.cs" />
@@ -209,6 +212,7 @@
     <Compile Include="Controllers\APInvoicesController.cs" />
     <Compile Include="Controllers\ARChecksController.cs" />
     <Compile Include="Controllers\ARInvoicesController.cs" />
+    <Compile Include="Controllers\AuthController.cs" />
     <Compile Include="Controllers\BankDetailsController.cs" />
     <Compile Include="Controllers\APInvoicesApiController.cs" />
     <Compile Include="Controllers\GeneralLedgersController.cs" />
@@ -301,6 +305,7 @@
     <Compile Include="Models\ARInvoice.cs" />
     <Compile Include="Models\BankDetails.cs" />
     <Compile Include="Models\GeneralLedger.cs" />
+    <Compile Include="Models\Security\Claims.cs" />
     <Compile Include="Models\Vendor.cs" />
     <Compile Include="Models\VendorContacts.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
