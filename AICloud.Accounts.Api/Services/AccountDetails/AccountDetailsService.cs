@@ -14,9 +14,11 @@ namespace AICloud.Accounts.Api.Services.AccountDetails
     public class AccountDetailsService
     {
         private string  _apiLink;
-        public AccountDetailsService()
+        private readonly string _authToken;
+        public AccountDetailsService(string authToken)
         {
              _apiLink = ConfigurationManager.AppSettings.Get("AccountApiUrl");
+            _authToken = authToken;
         }
         public AccountDetailsModel CreateAccountEntry(AccountDetailsModel apInvoice)
         {
@@ -26,6 +28,7 @@ namespace AICloud.Accounts.Api.Services.AccountDetails
 			request.Resource = $"api/AccountDetails";
 			request.RequestFormat = DataFormat.Json;
             request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Authorization", $"{_authToken}");
 			request.AddParameter("application/json", JsonConvert.SerializeObject(apInvoice), ParameterType.RequestBody);
             request.Method = Method.POST;
 			var apiResponse = _apiClient.Execute(request);
@@ -38,7 +41,7 @@ namespace AICloud.Accounts.Api.Services.AccountDetails
 
         public void ProcessAccounting(int entryType,double amount,int referenceId,string referenceType,int glId)
         {
-            var generalLedgerSvc = new GeneralLedgerService();
+            var generalLedgerSvc = new GeneralLedgerService(_authToken);
             var gl = generalLedgerSvc.GetGeneralLedgerById(glId);
             var accountEntry = new AccountDetailsModel();
             accountEntry.ReferenceId = referenceId;

@@ -16,10 +16,12 @@ namespace AICloud.Accounts.Api.Services.APChecks
     {
         
         private string  _apiLink;
-        public ApChecksService()
+        private readonly string _authToken;
+        public ApChecksService(string authToken)
         {
             
              _apiLink = ConfigurationManager.AppSettings.Get("AccountApiUrl");
+            _authToken = authToken;
         }
 
          public ApChecksModel CreateApCheck(ApChecksModel apInvoice)
@@ -30,6 +32,7 @@ namespace AICloud.Accounts.Api.Services.APChecks
 			request.Resource = $"api/ApChecks";
 			request.RequestFormat = DataFormat.Json;
             request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Authorization", $"{_authToken}");
 			request.AddParameter("application/json", JsonConvert.SerializeObject(apInvoice), ParameterType.RequestBody);
             request.Method = Method.POST;
 			var apiResponse = _apiClient.Execute(request);
@@ -54,10 +57,10 @@ namespace AICloud.Accounts.Api.Services.APChecks
             var check = CreateApCheck(postModel);
 
             //Get AP Account
-            var generalLedgerSvc = new GeneralLedgerService();
+            var generalLedgerSvc = new GeneralLedgerService(_authToken);
             var accountPayable = generalLedgerSvc.GetAPGeneralLedger();
 
-            var accountDetailsSvc = new AccountDetailsService();
+            var accountDetailsSvc = new AccountDetailsService(_authToken);
 
             accountDetailsSvc.ProcessAccounting(2,check.ChequeAmount,check.Id,"ApCheck",accountPayable.Id);
         

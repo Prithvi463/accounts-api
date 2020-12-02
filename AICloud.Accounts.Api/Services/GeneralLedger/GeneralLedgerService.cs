@@ -14,9 +14,11 @@ namespace AICloud.Accounts.Api.Services.GeneralLedger
     public class GeneralLedgerService
     {
         private readonly string _apiLink;
-        public GeneralLedgerService()
+        private readonly string _authToken;
+        public GeneralLedgerService(string authToken)
         {
           _apiLink = ConfigurationManager.AppSettings.Get("AccountApiUrl");
+            _authToken = authToken;
         }
 
         public void CreateLedgerEntry(string bank_Id,int accountType,string accountCode,string sequenceNo,double amount)
@@ -78,6 +80,7 @@ namespace AICloud.Accounts.Api.Services.GeneralLedger
 			request.Resource = "/api/generalledgers";
 			request.AddQueryParameter("$filter", $"Id eq {id}");
 			request.Method = Method.GET;
+            request.AddHeader("Authorization", $"{_authToken}");
 			var mobileApiResponse = _apiClient.Execute(request);
 			if (mobileApiResponse.StatusCode != HttpStatusCode.OK)
 				throw new Exception("Error from FinFlo Mobile API");
@@ -91,6 +94,7 @@ namespace AICloud.Accounts.Api.Services.GeneralLedger
            var request = new RestRequest();
 			request.Resource = "/api/generalledgers";
 			request.Method = Method.GET;
+            request.AddHeader("Authorization", $"{_authToken}");
 			var mobileApiResponse = _apiClient.Execute(request);
 			if (mobileApiResponse.StatusCode != HttpStatusCode.OK)
 				throw new Exception("Error from FinFlo Mobile API");

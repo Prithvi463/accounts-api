@@ -1,4 +1,5 @@
-﻿using AICloud.Accounts.Api.CustomModels.APInvoices;
+﻿using AICloud.Accounts.Api.Attributes;
+using AICloud.Accounts.Api.CustomModels.APInvoices;
 using AICloud.Accounts.Api.CustomModels.GeneralLedger;
 using AICloud.Accounts.Api.Services.APInvoices;
 using AICloud.Accounts.Api.Services.GeneralLedger;
@@ -10,7 +11,8 @@ using System.Net.Http;
 using System.Web.Http;
 
 namespace AICloud.Accounts.Api.Controllers
-{
+{    
+    [AuthorizeUser]
     public class APInvoicesApiController : ApiController
     {
         public APInvoicesApiController()
@@ -21,14 +23,20 @@ namespace AICloud.Accounts.Api.Controllers
         [HttpGet]
         public IHttpActionResult GetLedgerWithBanks()
         {
-            var generalLedgerService = new GeneralLedgerService();
+             var token = Request.Headers.Authorization;
+            if (token == null)
+                return Unauthorized();
+            var generalLedgerService = new GeneralLedgerService(token.ToString());
             return Ok(generalLedgerService.GetLedgerWithBanks());
         }
 
          [HttpPost]
         public IHttpActionResult PostInvoice(PostApInvoiceModel data)
         {
-            var invSvc = new ApInvoiceService();
+             var token = Request.Headers.Authorization;
+            if (token == null)
+                return Unauthorized();
+            var invSvc = new ApInvoiceService(token.ToString());
             invSvc.processApInvoicing(data);
             return Ok();
         }
@@ -36,7 +44,10 @@ namespace AICloud.Accounts.Api.Controllers
          [Route("api/APInvoicesApi/GetApInvoice")]
         public IHttpActionResult GetApInvoice()
         {
-            var invSvc = new ApInvoiceService();
+            var token = Request.Headers.Authorization;
+            if (token == null)
+                return Unauthorized();
+            var invSvc = new ApInvoiceService(token.ToString());
                return Ok(invSvc.GetApInvoices());
         }
     }

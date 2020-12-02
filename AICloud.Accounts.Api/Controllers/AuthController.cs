@@ -3,6 +3,7 @@ using Newtonsoft.Json;
 using RestSharp;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
@@ -14,8 +15,9 @@ namespace AICloud.Accounts.Api.Controllers
     {
          [Route("auth/validate")]
         public IHttpActionResult Post([FromUri] string access_token)
-        {
-            var client = new RestClient("https://localhost:44327/api/auth/authenticate");
+        {  
+            var identityUrl = ConfigurationManager.AppSettings.Get("IdentityUrl");
+            var client = new RestClient($"{identityUrl}api/auth/authenticate");
             var request = new RestRequest(Method.GET);
             request.AddHeader("Authorization", $"Bearer {access_token}");
             IRestResponse response = client.Execute(request);

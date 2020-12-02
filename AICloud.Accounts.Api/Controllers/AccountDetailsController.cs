@@ -1,4 +1,5 @@
-﻿using AICloud.Accounts.Api.Context;
+﻿using AICloud.Accounts.Api.Attributes;
+using AICloud.Accounts.Api.Context;
 using AICloud.Accounts.Api.Models;
 using System;
 using System.Collections.Generic;
@@ -12,6 +13,7 @@ using System.Web.Http.Description;
 
 namespace AICloud.Accounts.Api.Controllers
 {
+     [AuthorizeUser]
     public class AccountDetailsController : ApiController
     {
          private AccountsDbContext db = new AccountsDbContext();

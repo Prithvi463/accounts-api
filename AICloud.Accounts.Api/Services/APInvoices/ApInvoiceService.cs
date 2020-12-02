@@ -15,9 +15,11 @@ namespace AICloud.Accounts.Api.Services.APInvoices
     public class ApInvoiceService
     {
         private string  _apiLink;
-        public ApInvoiceService()
+        private readonly string  _authToken;
+        public ApInvoiceService(string authToken)
         {
              _apiLink = ConfigurationManager.AppSettings.Get("AccountApiUrl");
+            _authToken = authToken;
         }
           public ApInvoiceModel CreateApInvoice(ApInvoiceModel apInvoice)
         {
@@ -27,6 +29,7 @@ namespace AICloud.Accounts.Api.Services.APInvoices
 			request.Resource = $"api/ApInvoices";
 			request.RequestFormat = DataFormat.Json;
             request.AddHeader("Content-Type", "application/json");
+            request.AddHeader("Authorization", $"{_authToken}");
 			request.AddParameter("application/json", JsonConvert.SerializeObject(apInvoice), ParameterType.RequestBody);
             request.Method = Method.POST;
 			var apiResponse = _apiClient.Execute(request);
@@ -49,14 +52,14 @@ namespace AICloud.Accounts.Api.Services.APInvoices
             var invoice = CreateApInvoice(postModel);
 
             //Get AP Account
-             var generalLedgerSvc = new GeneralLedgerService();
+             var generalLedgerSvc = new GeneralLedgerService(_authToken);
             var gl = generalLedgerSvc.GetAPGeneralLedger();
 
-            var accountDetailsSvc = new AccountDetailsService();
+            var accountDetailsSvc = new AccountDetailsService(_authToken);
 
             accountDetailsSvc.ProcessAccounting(2,Convert.ToDouble(invoice.InvoiceAmount),invoice.Id,"ApInvoice",Convert.ToInt32(invoice.GeneralLedger_Id));
         
-            var accountDetailsSvc1 = new AccountDetailsService();
+            var accountDetailsSvc1 = new AccountDetailsService(_authToken);
              accountDetailsSvc1.ProcessAccounting(1,Convert.ToDouble(invoice.InvoiceAmount),invoice.Id,"ApInvoice",gl.Id);
         
         }

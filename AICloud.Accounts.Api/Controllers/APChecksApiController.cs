@@ -1,4 +1,5 @@
-﻿using AICloud.Accounts.Api.CustomModels.APChecks;
+﻿using AICloud.Accounts.Api.Attributes;
+using AICloud.Accounts.Api.CustomModels.APChecks;
 using AICloud.Accounts.Api.Services.APChecks;
 using System;
 using System.Collections.Generic;
@@ -9,6 +10,7 @@ using System.Web.Http;
 
 namespace AICloud.Accounts.Api.Controllers
 {
+        [AuthorizeUser]
     public class APChecksApiController : ApiController
     {
         public APChecksApiController()
@@ -19,7 +21,10 @@ namespace AICloud.Accounts.Api.Controllers
         [HttpPost]
         public IHttpActionResult PostApCheck(ApChecksPostModel data)
         {
-            var apChecksService = new ApChecksService();
+             var token = Request.Headers.Authorization;
+            if (token == null)
+                return Unauthorized();
+            var apChecksService = new ApChecksService(token.ToString());
             apChecksService.ProcessApChecks(data);
             return Ok();
         }
